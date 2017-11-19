@@ -30,8 +30,8 @@ create table TaiKhoan
 (
 	MaTK int identity primary key not null,
 	LoaiTK int,
-	TenNguoiDung nvarchar(30),
-	MatKhau nvarchar(20),
+	TenNguoiDung varchar(30),
+	MatKhau varchar(20),
 	TenDayDu nvarchar(50),
 	DiaChi nvarchar(50),
 	Email nvarchar(50),
