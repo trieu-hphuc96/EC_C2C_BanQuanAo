@@ -1,14 +1,14 @@
 ﻿use master
 
 go
-IF OBJECT_ID('dbo.EC_C2C_QuanAo', 'U') IS NOT NULL 
-  DROP TABLE dbo.EC_C2C_QuanAo;
+IF EXISTS(select * from sys.databases where name='EC_C2C_BanQuanAo')
+DROP DATABASE EC_C2C_BanQuanAo
 
 go
-create database EC_C2C_QuanAo
+create database EC_C2C_BanQuanAo
 
 go
-use EC_C2C_QuanAo
+use EC_C2C_BanQuanAo
 
 go
 create table LoaiTK
