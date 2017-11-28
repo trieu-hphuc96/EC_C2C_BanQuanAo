@@ -14,6 +14,12 @@ namespace EC_C2C_BanQuanAo.Controllers
             return View();
         }
 
+        // GET: NguoiBan
+        public ActionResult NguoiBan()
+        {
+            return View();
+        }
+
         // GET: Admin
         public ActionResult Admin()
         {
