@@ -160,10 +160,31 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\NguoiBan\Controllers\TaiKhoanController.cs" />
+    <Compile Include="Areas\NguoiBan\Models\TaiKhoanViewModels.cs" />
+    <Compile Include="Areas\NguoiBan\NguoiBanAreaRegistration.cs" />
+    <Compile Include="Areas\NguoiMua\NguoiMuaAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\GoiTinsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\TrangChuController.cs" />
+    <Compile Include="EncyptPasswordHelper.cs" />
+    <Compile Include="Filter\BasicAuthFilter.cs" />
+    <Compile Include="Migrations\201712051632043_KhoiTao.cs" />
+    <Compile Include="Migrations\201712051632043_KhoiTao.Designer.cs">
+      <DependentUpon>201712051632043_KhoiTao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712051633081_ThemRoles_VCode.cs" />
+    <Compile Include="Migrations\201712051633081_ThemRoles_VCode.Designer.cs">
+      <DependentUpon>201712051633081_ThemRoles_VCode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712051707318_Doi_Length_Matkhau.cs" />
+    <Compile Include="Migrations\201712051707318_Doi_Length_Matkhau.Designer.cs">
+      <DependentUpon>201712051707318_Doi_Length_Matkhau.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CT_HoaDon_BanHang.cs" />
     <Compile Include="Models\DanhGia.cs" />
     <Compile Include="Models\EC_C2C_BanQuanAoDBContext.cs" />
@@ -178,10 +199,12 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Principal\DangNhapPrincipal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Models\TaiKhoan.cs" />
     <Compile Include="Models\Tin.cs" />
+    <Compile Include="ViewModels\TaiKhoanViewModels.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets_NguoiBan\css\sb-admin.css" />
@@ -462,6 +485,14 @@
     <Content Include="Assets_NguoiBan\vendor\font-awesome\scss\_stacked.scss" />
     <Content Include="Assets_NguoiBan\vendor\font-awesome\scss\_variables.scss" />
     <Content Include="Assets_NguoiBan\vendor\font-awesome\scss\font-awesome.scss" />
+    <Content Include="Areas\NguoiBan\Views\web.config" />
+    <Content Include="Areas\NguoiBan\Views\TaiKhoan\DangNhap.cshtml" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\NguoiMua\Views\web.config" />
+    <Content Include="Areas\NguoiBan\Views\Shared\_LayoutNguoiBan.cshtml" />
+    <Content Include="Areas\NguoiBan\Views\Shared\_LayoutDangNhapDangKy.cshtml" />
+    <Content Include="Areas\NguoiBan\Views\TaiKhoan\DangKy.cshtml" />
+    <Content Include="Areas\NguoiBan\Views\TaiKhoan\TrangChu.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -515,12 +546,18 @@
     <Content Include="Views\TrangChu\Admin.cshtml" />
     <Content Include="Views\TrangChu\NguoiBan.cshtml" />
     <Content Include="Views\Shared\_LayoutNguoiBan.cshtml" />
+    <Content Include="Views\Shared\_LayoutDangNhap.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\Admin\" />
-    <Folder Include="Controllers\NguoiBan\" />
-    <Folder Include="Controllers\NguoiMua\" />
+    <Folder Include="Areas\Admin\Controllers\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\Shared\" />
+    <Folder Include="Areas\NguoiBan\Models\Principal\" />
+    <Folder Include="Areas\NguoiMua\Controllers\" />
+    <Folder Include="Areas\NguoiMua\Models\" />
+    <Folder Include="Areas\NguoiMua\Views\Shared\" />
+    <Folder Include="Views\GoiTins\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -529,6 +566,17 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201712051632043_KhoiTao.resx">
+      <DependentUpon>201712051632043_KhoiTao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712051633081_ThemRoles_VCode.resx">
+      <DependentUpon>201712051633081_ThemRoles_VCode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712051707318_Doi_Length_Matkhau.resx">
+      <DependentUpon>201712051707318_Doi_Length_Matkhau.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

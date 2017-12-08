@@ -1,4 +1,4 @@
-namespace EC_C2C_BanQuanAo
+﻿namespace EC_C2C_BanQuanAo
 {
     using System;
     using System.Collections.Generic;
@@ -26,33 +26,42 @@ namespace EC_C2C_BanQuanAo
 
         public int? LoaiTK { get; set; }
 
+        [Display(Name = "Tên đăng nhập")]
         [StringLength(30)]
         public string TenNguoiDung { get; set; }
 
-        [StringLength(20)]
+        [Display(Name = "Mật khẩu")]
         public string MatKhau { get; set; }
 
+        [Display(Name = "Họ và Tên")]
         [StringLength(50)]
         public string TenDayDu { get; set; }
 
+        [Display(Name = "Địa chỉ")]
         [StringLength(50)]
         public string DiaChi { get; set; }
 
+        [Display(Name = "Email")]
         [StringLength(50)]
         public string Email { get; set; }
 
+        [Display(Name = "Ngày sinh")]
         [Column(TypeName = "date")]
         public DateTime? NgaySinh { get; set; }
 
+        [Display(Name = "Số điện thoại")]
         [StringLength(15)]
         public string SDT { get; set; }
 
+        [Display(Name = "CMND")]
         [StringLength(20)]
         public string CMND { get; set; }
 
+        [Display(Name = "Ngày đăng ký")]
         [Column(TypeName = "date")]
         public DateTime? NgayDangKy { get; set; }
 
+        [Display(Name = "Ngày đánh giá")]
         [Column(TypeName = "date")]
         public DateTime? NgayDanhGia { get; set; }
 
@@ -86,5 +95,9 @@ namespace EC_C2C_BanQuanAo
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Tin> Tins { get; set; }
+
+        public string[] Roles { get; set; }
+
+        public string VCode { get; set; }
     }
 }

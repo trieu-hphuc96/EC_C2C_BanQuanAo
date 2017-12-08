@@ -1,0 +1,65 @@
+﻿@model EC_C2C_BanQuanAo.Areas.NguoiBan.Models.DangKyViewModels
+@{
+    ViewBag.Title = "Đăng ký bán hàng";
+    Layout = "~/Areas/NguoiBan/Views/Shared/_LayoutDangNhapDangKy.cshtml";
+}
+
+<div class="container">
+    <div class="card card-register mx-auto mt-5">
+        <div class="card-header">Đăng ký tài khoản mới</div>
+        <div class="card-body">
+            @using(Html.BeginForm())
+            {
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                
+                <div class="text-danger">
+                    @ViewBag.Loi
+                </div>
+                
+                <div class="form-group">
+                    @Html.LabelFor(m => m.TenDayDu)
+                    @Html.EditorFor(m => m.TenDayDu, "", new { htmlAttributes = new { @class = "form-control", @placeholder = "Nhập họ tên" } })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.TenNguoiDung)
+                    @Html.EditorFor(m => m.TenNguoiDung, "", new { htmlAttributes = new { @class = "form-control", @placeholder = "Nhập tên đăng nhập" } })
+                    @Html.ValidationMessageFor(m => m.TenNguoiDung, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            @Html.LabelFor(m => m.MatKhau)
+                            @Html.EditorFor(m => m.MatKhau, "", new { htmlAttributes = new { @class = "form-control", @placeholder = "Mật khẩu" } })
+                            @Html.ValidationMessageFor(m => m.MatKhau, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-md-6">
+                            @Html.LabelFor(m => m.XacNhanMatKhau)
+                            @Html.EditorFor(m => m.XacNhanMatKhau, "", new { htmlAttributes = new { @class = "form-control", @placeholder = "Xác nhận mật khẩu" } })
+                            @Html.ValidationMessageFor(m => m.XacNhanMatKhau, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Email)
+                    @Html.EditorFor(m => m.Email, "", new { htmlAttributes = new { @class = "form-control", @placeholder = "Nhập email" } })
+                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                </div>
+                
+                <input class="btn btn-primary btn-block" type="submit" value="Đăng ký">
+            }
+
+            <div class="text-center">
+                <a class="d-block small mt-3" href="@Url.Action("DangNhap", "TaiKhoan")">Đăng nhập</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Bootstrap core JavaScript-->
+<script src="~/Assets_NguoiBan/vendor/jquery/jquery.min.js"></script>
+<script src="~/Assets_NguoiBan/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Core plugin JavaScript-->
+<script src="~/Assets_NguoiBan/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
