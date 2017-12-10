@@ -172,6 +172,7 @@
     <Compile Include="Controllers\TrangChuController.cs" />
     <Compile Include="EncyptPasswordHelper.cs" />
     <Compile Include="Filter\BasicAuthFilter.cs" />
+    <Compile Include="Email.cs" />
     <Compile Include="Migrations\201712051632043_KhoiTao.cs" />
     <Compile Include="Migrations\201712051632043_KhoiTao.Designer.cs">
       <DependentUpon>201712051632043_KhoiTao.cs</DependentUpon>
@@ -183,6 +184,10 @@
     <Compile Include="Migrations\201712051707318_Doi_Length_Matkhau.cs" />
     <Compile Include="Migrations\201712051707318_Doi_Length_Matkhau.Designer.cs">
       <DependentUpon>201712051707318_Doi_Length_Matkhau.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712101123256_Them_XacNhanEmail_TaiKhoan.cs" />
+    <Compile Include="Migrations\201712101123256_Them_XacNhanEmail_TaiKhoan.Designer.cs">
+      <DependentUpon>201712101123256_Them_XacNhanEmail_TaiKhoan.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CT_HoaDon_BanHang.cs" />
@@ -576,6 +581,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712051707318_Doi_Length_Matkhau.resx">
       <DependentUpon>201712051707318_Doi_Length_Matkhau.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712101123256_Them_XacNhanEmail_TaiKhoan.resx">
+      <DependentUpon>201712101123256_Them_XacNhanEmail_TaiKhoan.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

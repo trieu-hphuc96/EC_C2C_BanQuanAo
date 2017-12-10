@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
@@ -19,6 +20,8 @@
             HoaDon_BanHang = new HashSet<HoaDon_BanHang>();
             HoaDon_BanTin = new HashSet<HoaDon_BanTin>();
             Tins = new HashSet<Tin>();
+
+            XacNhanEmail = 0;
         }
 
         [Key]
@@ -44,6 +47,8 @@
         [Display(Name = "Email")]
         [StringLength(50)]
         public string Email { get; set; }
+
+        public int XacNhanEmail { get; set; }
 
         [Display(Name = "Ngày sinh")]
         [Column(TypeName = "date")]

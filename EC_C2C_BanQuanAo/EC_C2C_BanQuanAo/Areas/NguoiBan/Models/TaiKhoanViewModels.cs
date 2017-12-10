@@ -28,6 +28,8 @@ namespace EC_C2C_BanQuanAo.Areas.NguoiBan.Models
         [StringLength(50)]
         public string TenDayDu { get; set; }
 
+        [Required(ErrorMessage = "Vui lòng nhập {0}")]
+        [EmailAddress]
         [Display(Name = "Email")]
         [StringLength(50)]
         public string Email { get; set; }
