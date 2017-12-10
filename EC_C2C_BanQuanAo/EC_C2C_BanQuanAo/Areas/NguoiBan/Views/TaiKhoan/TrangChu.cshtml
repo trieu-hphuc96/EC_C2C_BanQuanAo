@@ -1,11 +1,8 @@
-﻿@using EC_C2C_BanQuanAo.Models.Principal
-@{
-    ViewBag.Title = "Admin";
-    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+﻿@{
+    ViewBag.Title = "NguoiBan";
+    Layout = "~/Areas/NguoiBan/Views/Shared/_LayoutNguoiBan.cshtml";
 }
 
-<h2>Admin</h2>
-@((User as DangNhapPrincipal).TaiKhoan.TenNguoiDung)
 <div class="content-wrapper">
     <div class="container-fluid">
         <!-- Breadcrumbs-->
@@ -896,36 +893,48 @@
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fa fa-angle-up"></i>
     </a>
+
     <!-- Logout Modal-->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Bạn muốn đăng xuất?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-body">Chọn "Đăng xuất" để xác nhận.</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href=@Url.Action("DangXuat","DangNhap_Admin")>Đăng xuất</a>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Hủy bỏ</button>
+                    <a class="btn btn-primary" href="@Url.Action("DangNhap","TaiKhoan")">Đăng xuất</a>
                 </div>
             </div>
         </div>
     </div>
+
+
     <!-- Bootstrap core JavaScript-->
-    <script src="~/Assets_Admin/vendor/jquery/jquery.min.js"></script>
-    <script src="~/Assets_Admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Assets_NguoiBan/vendor/jquery/jquery.min.js"></script>
+    <script src="~/Assets_NguoiBan/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- Core plugin JavaScript-->
-    <script src="~/Assets_Admin/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="~/Assets_NguoiBan/vendor/jquery-easing/jquery.easing.min.js"></script>
     <!-- Page level plugin JavaScript-->
-    <script src="~/Assets_Admin/vendor/chart.js/Chart.min.js"></script>
-    <script src="~/Assets_Admin/vendor/datatables/jquery.dataTables.js"></script>
-    <script src="~/Assets_Admin/vendor/datatables/dataTables.bootstrap4.js"></script>
+    <script src="~/Assets_NguoiBan/vendor/chart.js/Chart.min.js"></script>
+    <script src="~/Assets_NguoiBan/vendor/datatables/jquery.dataTables.js"></script>
+    <script src="~/Assets_NguoiBan/vendor/datatables/dataTables.bootstrap4.js"></script>
     <!-- Custom scripts for all pages-->
-    <script src="~/Assets_Admin/js/sb-admin.min.js"></script>
+    <script src="~/Assets_NguoiBan/js/sb-admin.min.js"></script>
     <!-- Custom scripts for this page-->
-    <script src="~/Assets_Admin/js/sb-admin-datatables.min.js"></script>
-    <script src="~/Assets_Admin/js/sb-admin-charts.min.js"></script>
+    <script src="~/Assets_NguoiBan/js/sb-admin-datatables.min.js"></script>
+    <script src="~/Assets_NguoiBan/js/sb-admin-charts.min.js"></script>
 </div>
+
+@{
+    if (@ViewBag.XacNhanEmail == 1)
+    {
+        <script>
+            alert("Xác nhận email thành công!")
+        </script>
+    }
+}

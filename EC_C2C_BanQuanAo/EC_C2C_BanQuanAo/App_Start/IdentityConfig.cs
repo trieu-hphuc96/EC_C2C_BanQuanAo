@@ -11,6 +11,8 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using EC_C2C_BanQuanAo.Models;
+using System.Net.Mail;
+using System.Net;
 
 namespace EC_C2C_BanQuanAo
 {
@@ -18,7 +20,49 @@ namespace EC_C2C_BanQuanAo
     {
         public Task SendAsync(IdentityMessage message)
         {
-            // Plug in your email service here to send an email.
+            //// Plug in your email service here to send an email.
+            //var client = new SmtpClient
+            //{
+            //    Host = "smtp.gmail.com",
+            //    Port = 587,
+            //    UseDefaultCredentials = false,
+            //    DeliveryMethod = SmtpDeliveryMethod.Network,
+            //    Credentials = new NetworkCredential("test.send.mail1996@gmail.com","123456789phuc"),
+            //};
+
+            //var from = new MailAddress("test.send.mail1996@gmail.com", "Bán Quần Áo");
+            //var to = new MailAddress(message.Destination);
+
+            //var mail = new MailMessage(from, to)
+            //{
+            //    Subject = message.Subject,
+            //    Body = message.Body,
+            //    IsBodyHtml = true,
+            //};
+            //client.Send(mail);
+
+            //return Task.FromResult(0);
+
+            //tạo 1 email
+            var mail = new MailMessage();
+            mail.To.Add(new MailAddress(message.Destination));  // replace with valid value 
+            mail.From = new MailAddress("test.send.mail1996@gmail.com");  // replace with valid value
+            mail.Subject = "Bán Quần Áo - Xác nhận email!";
+            mail.Body = message.Body;
+            mail.IsBodyHtml = true;
+
+            //gửi email
+            var client = new SmtpClient
+            {
+                Credentials = new NetworkCredential("test.send.mail1996@gmail.com", "123456789phuc"),
+                Host = "smtp.gmail.com",
+                Port = 587,
+                EnableSsl = true,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+            };
+
+            client.Send(mail);
+
             return Task.FromResult(0);
         }
     }
@@ -54,10 +98,10 @@ namespace EC_C2C_BanQuanAo
             manager.PasswordValidator = new PasswordValidator
             {
                 RequiredLength = 6,
-                RequireNonLetterOrDigit = true,
+                RequireNonLetterOrDigit = false,
                 RequireDigit = true,
-                RequireLowercase = true,
-                RequireUppercase = true,
+                RequireLowercase = false,
+                RequireUppercase = false,
             };
 
             // Configure user lockout defaults

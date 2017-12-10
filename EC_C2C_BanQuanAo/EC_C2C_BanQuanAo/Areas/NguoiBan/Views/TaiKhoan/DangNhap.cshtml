@@ -1,0 +1,43 @@
+﻿@model EC_C2C_BanQuanAo.ViewModels.TaiKhoanViewModels
+
+@{
+    ViewBag.Title = "Đăng Nhập";
+    Layout = "~/Views/Shared/_LayoutDangNhap.cshtml";
+}
+
+<div class="container">
+    <div class="card card-login mx-auto mt-5">
+        <div class="card-header">Đăng nhập</div>
+        <div class="card-body">
+            @using (Html.BeginForm())
+            {
+                <div class="form-group">
+                    @Html.LabelFor(m => m.TaiKhoan.TenNguoiDung, new { @for = "tennguoidung" })
+                    @Html.TextBoxFor(m => m.TaiKhoan.TenNguoiDung, "", new { @class = "form-control", @id = "tennguoidung", placeholder = "Nhập tên đăng nhập" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.TaiKhoan.MatKhau, new { @for = "matkhau" })
+                    @Html.PasswordFor(m => m.TaiKhoan.MatKhau, new { @class = "form-control", @id = "matkhau", placeholder = "Nhập mật khẩu" })
+                </div>
+                
+                <div class="text-danger">
+                    @ViewBag.Loi
+                </div>
+                
+                <div class="form-group">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox"> Ghi nhớ mật khẩu
+                        </label>
+                    </div>
+                </div>
+                <input class="btn btn-primary btn-block" type="submit" value="Đăng nhập">
+            }
+            <div class="text-center">
+                <a class="d-block small mt-3" href="@Url.Action("DangKy","TaiKhoan")">Đăng ký tài khoản mới?</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
