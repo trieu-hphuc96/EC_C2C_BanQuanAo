@@ -161,7 +161,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\NguoiBan\Controllers\GoiTinController.cs" />
+    <Compile Include="Areas\NguoiBan\Controllers\HoaDon_BanHangController.cs" />
+    <Compile Include="Areas\NguoiBan\Controllers\SanPhamController.cs" />
     <Compile Include="Areas\NguoiBan\Controllers\TaiKhoanController.cs" />
+    <Compile Include="Areas\NguoiBan\Models\GoiTinViewModels.cs" />
+    <Compile Include="Areas\NguoiBan\Models\HoaDon_BanHangViewModels.cs" />
+    <Compile Include="Areas\NguoiBan\Models\SanPhamViewModels.cs" />
     <Compile Include="Areas\NguoiBan\Models\TaiKhoanViewModels.cs" />
     <Compile Include="Areas\NguoiBan\NguoiBanAreaRegistration.cs" />
     <Compile Include="Areas\NguoiMua\NguoiMuaAreaRegistration.cs" />
@@ -189,8 +195,21 @@
     <Compile Include="Migrations\201712101123256_Them_XacNhanEmail_TaiKhoan.Designer.cs">
       <DependentUpon>201712101123256_Them_XacNhanEmail_TaiKhoan.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712111534187_Them_TongTinConLai_TaiKhoan.cs" />
+    <Compile Include="Migrations\201712111534187_Them_TongTinConLai_TaiKhoan.designer.cs">
+      <DependentUpon>201712111534187_Them_TongTinConLai_TaiKhoan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712130912052_Them_HinhAnhSanPham.cs" />
+    <Compile Include="Migrations\201712130912052_Them_HinhAnhSanPham.designer.cs">
+      <DependentUpon>201712130912052_Them_HinhAnhSanPham.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712131714163_CapNhat_HinhAnhSanPham.cs" />
+    <Compile Include="Migrations\201712131714163_CapNhat_HinhAnhSanPham.designer.cs">
+      <DependentUpon>201712131714163_CapNhat_HinhAnhSanPham.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CT_HoaDon_BanHang.cs" />
+    <Compile Include="Models\C__MigrationHistory.cs" />
     <Compile Include="Models\DanhGia.cs" />
     <Compile Include="Models\EC_C2C_BanQuanAoDBContext.cs" />
     <Compile Include="Models\GioHang.cs" />
@@ -198,6 +217,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\GoiTin.cs" />
+    <Compile Include="Models\HinhAnhSanPham.cs" />
     <Compile Include="Models\HoaDon_BanHang.cs" />
     <Compile Include="Models\HoaDon_BanTin.cs" />
     <Compile Include="Models\LoaiTK.cs" />
@@ -352,9 +372,18 @@
     <Content Include="Assets_Admin\vendor\jquery\jquery.min.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\jquery-ui.css" />
+    <Content Include="Content\jquery-ui.min.css" />
+    <Content Include="Content\jquery-ui.structure.css" />
+    <Content Include="Content\jquery-ui.structure.min.css" />
+    <Content Include="Content\jquery-ui.theme.css" />
+    <Content Include="Content\jquery-ui.theme.min.css" />
+    <Content Include="Content\MyCSS.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap-filestyle.js" />
+    <Content Include="Scripts\bootstrap-filestyle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Assets_NguoiMua\fonts\fontawesome-webfont.svg" />
@@ -498,10 +527,21 @@
     <Content Include="Areas\NguoiBan\Views\Shared\_LayoutDangNhapDangKy.cshtml" />
     <Content Include="Areas\NguoiBan\Views\TaiKhoan\DangKy.cshtml" />
     <Content Include="Areas\NguoiBan\Views\TaiKhoan\TrangChu.cshtml" />
+    <Content Include="Areas\NguoiBan\Views\GoiTin\MuaGoiTin.cshtml" />
+    <Content Include="Areas\NguoiBan\Views\HoaDon_BanHang\CapNhatTinhTrang.cshtml" />
+    <Content Include="Areas\NguoiBan\Views\SanPham\DangTinSanPham.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery-3.2.1.min.map" />
+    <Content Include="Scripts\jquery-3.2.1.slim.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-3.2.1.js" />
+    <Content Include="Scripts\jquery-3.2.1.min.js" />
+    <Content Include="Scripts\jquery-3.2.1.slim.js" />
+    <Content Include="Scripts\jquery-3.2.1.slim.min.js" />
+    <Content Include="Scripts\jquery-ui.js" />
+    <Content Include="Scripts\jquery-ui.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -562,6 +602,7 @@
     <Folder Include="Areas\NguoiMua\Controllers\" />
     <Folder Include="Areas\NguoiMua\Models\" />
     <Folder Include="Areas\NguoiMua\Views\Shared\" />
+    <Folder Include="HinhAnhSanPham\" />
     <Folder Include="Views\GoiTins\" />
   </ItemGroup>
   <ItemGroup>
@@ -584,6 +625,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712101123256_Them_XacNhanEmail_TaiKhoan.resx">
       <DependentUpon>201712101123256_Them_XacNhanEmail_TaiKhoan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712111534187_Them_TongTinConLai_TaiKhoan.resx">
+      <DependentUpon>201712111534187_Them_TongTinConLai_TaiKhoan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712130912052_Them_HinhAnhSanPham.resx">
+      <DependentUpon>201712130912052_Them_HinhAnhSanPham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712131714163_CapNhat_HinhAnhSanPham.resx">
+      <DependentUpon>201712131714163_CapNhat_HinhAnhSanPham.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

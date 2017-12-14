@@ -72,6 +72,8 @@
 
         public int? TongTinDaMua { get; set; }
 
+        public int? TongTinConLai { get; set; }
+
         public int? TongTinKM { get; set; }
 
         public decimal? DiemDanhGia { get; set; }

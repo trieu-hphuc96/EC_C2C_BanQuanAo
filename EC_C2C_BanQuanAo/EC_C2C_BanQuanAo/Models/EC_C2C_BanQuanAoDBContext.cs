@@ -4,6 +4,7 @@ namespace EC_C2C_BanQuanAo
     using System.Data.Entity;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
+    using EC_C2C_BanQuanAo.Models;
 
     public partial class EC_C2C_BanQuanAoDBContext : DbContext
     {
@@ -21,6 +22,7 @@ namespace EC_C2C_BanQuanAo
         public virtual DbSet<LoaiTK> LoaiTKs { get; set; }
         public virtual DbSet<TaiKhoan> TaiKhoans { get; set; }
         public virtual DbSet<Tin> Tins { get; set; }
+        public virtual DbSet<HinhAnhSanPham> HinhAnhSanPhams { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

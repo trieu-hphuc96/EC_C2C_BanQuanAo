@@ -9,7 +9,7 @@ namespace EC_C2C_BanQuanAo.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(EC_C2C_BanQuanAo.EC_C2C_BanQuanAoDBContext context)

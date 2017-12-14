@@ -1,4 +1,4 @@
-﻿@model EC_C2C_BanQuanAo.ViewModels.TaiKhoanViewModels
+﻿@model EC_C2C_BanQuanAo.Areas.NguoiBan.Models.DangNhapViewModels
 
 @{
     ViewBag.Title = "Đăng Nhập";
@@ -12,12 +12,12 @@
             @using (Html.BeginForm())
             {
                 <div class="form-group">
-                    @Html.LabelFor(m => m.TaiKhoan.TenNguoiDung, new { @for = "tennguoidung" })
-                    @Html.TextBoxFor(m => m.TaiKhoan.TenNguoiDung, "", new { @class = "form-control", @id = "tennguoidung", placeholder = "Nhập tên đăng nhập" })
+                    @Html.LabelFor(m => m.TenNguoiDung, new { @for = "tennguoidung" })
+                    @Html.TextBoxFor(m => m.TenNguoiDung, "", new { @class = "form-control", @id = "tennguoidung", placeholder = "Nhập tên đăng nhập" })
                 </div>
                 <div class="form-group">
-                    @Html.LabelFor(m => m.TaiKhoan.MatKhau, new { @for = "matkhau" })
-                    @Html.PasswordFor(m => m.TaiKhoan.MatKhau, new { @class = "form-control", @id = "matkhau", placeholder = "Nhập mật khẩu" })
+                    @Html.LabelFor(m => m.MatKhau, new { @for = "matkhau" })
+                    @Html.PasswordFor(m => m.MatKhau, new { @class = "form-control", @id = "matkhau", placeholder = "Nhập mật khẩu" })
                 </div>
                 
                 <div class="text-danger">

@@ -34,4 +34,18 @@ namespace EC_C2C_BanQuanAo.Areas.NguoiBan.Models
         [StringLength(50)]
         public string Email { get; set; }
     }
+
+    public class DangNhapViewModels
+    {
+        public int MaTK;
+
+        [Required(ErrorMessage = "Vui lòng nhập {0}")]
+        [Display(Name = "Tên đăng nhập")]
+        public string TenNguoiDung { get; set; }
+
+        [Required(ErrorMessage = "Vui lòng nhập {0}")]
+        [DataType(DataType.Password)]
+        [Display(Name = "Mật khẩu")]
+        public string MatKhau { get; set; }
+    } 
 }

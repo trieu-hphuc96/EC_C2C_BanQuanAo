@@ -1,0 +1,141 @@
+﻿@model EC_C2C_BanQuanAo.Areas.NguoiBan.Models.MuaGoiTinViewModel
+
+@{
+    ViewBag.Title = "Mua Gói Tin";
+    Layout = "~/Areas/NguoiBan/Views/Shared/_LayoutNguoiBan.cshtml";
+}
+
+<!-- Breadcrumbs-->
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a href="@Url.Action("TrangChu", "TaiKhoan")">Trang Chủ</a>
+    </li>
+    <li class="breadcrumb-item active">Mua Gói Tin</li>
+</ol>
+
+@using (Html.BeginForm())
+{
+    <div class="alert alert-success" id="success-alert" style="display: none;">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        Đã giao dịch thành công!
+    </div>
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <h3>Thông tin cơ bản</h3>
+
+    <div class="form-horizontal">
+
+        <div class="form-group">
+
+            <div class="form-inline">
+                @Html.LabelFor(m => m.SoTinDaMua, "Số tin đã mua:", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-2">
+                    @Html.EditorFor(m => m.SoTinDaMua, new { htmlAttributes = new { @class = "form-control text-right", @readonly = true } })
+                </div>
+                tin.
+            </div>
+
+            <br />
+            <div class="form-inline">
+                    @Html.LabelFor(m => m.SoTinConLai, "Số tin còn lại:", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-2">
+                    @Html.EditorFor(m => m.SoTinConLai, new { htmlAttributes = new { @class = "form-control text-right", @readonly = true } })
+                </div>
+                tin.
+            </div>
+
+            <br />
+            <div class="form-inline">
+                    @Html.LabelFor(m => m.KhuyenMai, "Khuyến mãi thêm:", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-2">
+                    @Html.EditorFor(m => m.KhuyenMai, new { htmlAttributes = new { @class = "form-control text-right", @readonly = true } })
+                </div>
+                %
+            </div>
+
+        </div>
+
+    </div>
+            
+    <h3>Thông tin gói</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <td class="control-label ">Tên gói</td>
+                <td class="control-label ">Số tin</td>
+                <td class="control-label ">Giá tiền</td>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    @Html.DropDownListFor(m => m.MaGoi,null, new { @class = "form-control" })
+                </td>
+                <td>
+                    @Html.EditorFor(m => m.SoLuongTin, new { htmlAttributes = new { @class = "form-control", @readonly = true } })
+                </td>
+                <td>
+                    <input class="form-control" type="text" id="Gia" readonly/>
+                </td>
+                <td>
+                    <a href="#" id="nutGiaoDich" class="btn btn-dark" onclick="GiaoDich()">Giao dịch</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+}
+
+
+<script>
+    
+
+    window.onload = function () {
+        var gia = 0;
+
+        //điền số lượng tin và giá khi load page
+        var magoi = $('#MaGoi').val();
+        $('#SoLuongTin').empty();
+        $.get('/NguoiBan/GoiTin/layGoiTin', { MaGoi: magoi }, function (data) {
+            document.getElementById("SoLuongTin").value = data.SoLuongTin;
+
+            gia = data.Gia;
+            //format giá thành kiểu VND
+            document.getElementById("Gia").value = gia.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
+
+        });
+    };
+
+    $(document).ready(function () {
+
+        $('#MaGoi').change(function () {
+            var magoi = $(this).val();
+            $('#SoLuongTin').empty();
+            $.get('/NguoiBan/GoiTin/layGoiTin', { MaGoi: magoi }, function (data) {
+                document.getElementById("SoLuongTin").value = data.SoLuongTin;
+
+                gia = data.Gia;
+                document.getElementById("Gia").value = gia.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
+            });
+        });
+
+    });
+
+    function GiaoDich() {
+        document.getElementById("Gia").value = gia;
+        $('#nutGiaoDich').closest('form').submit();
+    }
+
+</script>
+
+@if(ViewBag.ThongBaoThanhCong == 1)
+{
+    <script>
+        $("#success-alert").alert();
+        $("#success-alert").fadeTo(2000, 500).slideUp(500, function () {
+            $("#success-alert").slideUp(500);
+        });
+    </script>
+}
+

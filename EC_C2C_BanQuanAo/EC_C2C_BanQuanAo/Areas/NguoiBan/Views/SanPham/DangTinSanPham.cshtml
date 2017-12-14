@@ -1,0 +1,217 @@
+﻿@model EC_C2C_BanQuanAo.Areas.NguoiBan.Models.DangTinSanPhamViewModel
+@{
+    ViewBag.Title = "Đăng tin sản phẩm";
+    Layout = "~/Areas/NguoiBan/Views/Shared/_LayoutNguoiBan.cshtml";
+}
+
+<!-- Breadcrumbs-->
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a href="@Url.Action("TrangChu", "TaiKhoan")">Trang Chủ</a>
+    </li>
+    <li class="breadcrumb-item active">Đăng tin sản phẩm</li>
+</ol>
+
+@using (Html.BeginForm("DangTinSanPham", "SanPham", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="alert alert-danger" id="danger-alert" style="display: none;">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        Đã hết tin! Vui lòng mua thêm tin đăng!
+    </div>
+
+    <div class="alert alert-success" id="success-alert" style="display: none;">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        Đăng tin thành công! Vui lòng chờ tin được duyệt trong vòng 12 giờ!
+    </div>
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    
+    <h3>Thông tin sản phẩm</h3>
+    <br />
+
+    <!-- Icon Cards-->
+    <div class="row">
+        <div class="col-xl-6 col-sm-6 mb-3">
+            <div class="form-horizontal">
+
+                <div class="form-inline">
+                    @Html.LabelFor(m => m.MaSKU, "Mã SKU:", htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(m => m.MaSKU, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(m => m.MaSKU, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <br />
+                <div class="form-inline">
+                    @Html.LabelFor(m => m.TenSP, "Tên sản phẩm:", htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(m => m.TenSP, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(m => m.TenSP, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <br />
+                <div class="form-inline">
+                    @Html.LabelFor(m => m.Gia, "Giá:", htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(m => m.Gia, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(m => m.Gia, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <br />
+                <div class="form-inline">
+                    @Html.LabelFor(m => m.SoLuong, "Số lượng:", htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(m => m.SoLuong, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(m => m.SoLuong, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <br />
+                <div class="form-inline">
+                    @Html.LabelFor(m => m.NgayDang, "Ngày đăng:", htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(m => m.NgayDang, new { htmlAttributes = new { @class = "form-control", @Value = @DateTime.Today.ToString("dd/MM/yyyy") } })
+                        @Html.ValidationMessageFor(m => m.NgayDang, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <br />
+                <div class="form-inline">
+                    @Html.LabelFor(m => m.NgayKetThuc, "Ngày kết thúc:", htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(m => m.NgayKetThuc, new { htmlAttributes = new { @class = "form-control", @Value = @DateTime.Today.ToString("dd/MM/yyyy") } })
+                        @Html.ValidationMessageFor(m => m.NgayKetThuc, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-xl-6 col-sm-6 mb-3">
+            <div class="form-horizontal">
+
+                <div class="form-inline">
+                    @Html.LabelFor(m => m.HinhAnhs, "Hình ảnh 1:", htmlAttributes: new { @class = "control-label col-md-4 " })
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(m => m.HinhAnhs, new { @type = "file", @class = "filestyle", @id = "HinhAnh1" })
+                    </div>
+                </div>
+
+                <br />
+                <div class="form-inline">
+                    @Html.LabelFor(m => m.HinhAnhs, "Hình ảnh 2:", htmlAttributes: new { @class = "control-label col-md-4 " })
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(m => m.HinhAnhs, new { @type = "file", @class = "filestyle", @id = "HinhAnh2" })
+                    </div>
+                </div>
+
+                <br />
+                <div class="form-inline">
+                    @Html.LabelFor(m => m.HinhAnhs, "Hình ảnh 3:", htmlAttributes: new { @class = "control-label col-md-4 " })
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(m => m.HinhAnhs, new { @type = "file", @class = "filestyle", @id = "HinhAnh3" })
+                    </div>
+                </div>
+
+                <br />
+                <div class="form-inline">
+                    @Html.LabelFor(m => m.HinhAnhs, "Hình ảnh 4:", htmlAttributes: new { @class = "control-label col-md-4 " })
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(m => m.HinhAnhs, new { @type = "file", @class = "filestyle", @id = "HinhAnh4" })
+                    </div>
+                </div>
+
+                <br />
+                <div class="form-inline">
+                    @Html.LabelFor(m => m.HinhAnhs, "Hình ảnh 5:", htmlAttributes: new { @class = "control-label col-md-4 " })
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(m => m.HinhAnhs, new { @type = "file", @class = "filestyle", @id = "HinhAnh5" })
+                    </div>
+                </div>
+                <br />
+                <div class="form-inline">
+                    @Html.LabelFor(m => m.HinhAnhs, "Hình ảnh 6:", htmlAttributes: new { @class = "control-label col-md-4 " })
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(m => m.HinhAnhs, new { @type = "file", @class = "filestyle", @id = "HinhAnh6" })
+                    </div>
+                </div>
+
+                <br />
+                <div class="form-inline">
+                    <label class="control-label col-md-4">  </label>
+                    <div class="col-md-8">
+                        <a href="#" id="nutDangTin" class="btn btn-dark" onclick="DangTin()">Đăng tin</a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <!-- Icon Cards-->
+}
+
+<script>
+
+    $('#HinhAnh1').filestyle({
+        text: 'Chọn hình ảnh '
+    });
+    $('#HinhAnh2').filestyle({
+        text: 'Chọn hình ảnh '
+    });
+    $('#HinhAnh3').filestyle({
+        text: 'Chọn hình ảnh '
+    });
+    $('#HinhAnh4').filestyle({
+        text: 'Chọn hình ảnh '
+    });
+    $('#HinhAnh5').filestyle({
+        text: 'Chọn hình ảnh '
+    });
+    $('#HinhAnh6').filestyle({
+        text: 'Chọn hình ảnh '
+    });
+
+    function DangTin() {
+        $('#nutDangTin').closest('form').submit();
+    }
+
+    $(document).ready(function () {
+
+        $("#NgayDang").datepicker({
+            inline: true,
+            dateFormat: 'dd/mm/yy'
+        });
+
+        $("#NgayKetThuc").datepicker({
+            inline: true,
+            dateFormat: 'dd/mm/yy'
+        });
+
+        $.validator.methods["date"] = function (value, element) { return true; } //tránh lỗi validate sai format ngày
+
+    });
+</script>
+
+@if (ViewBag.HetTin == 1)
+{
+    <script>
+        $("#danger-alert").alert();
+        $("#danger-alert").fadeTo(2000, 500).slideUp(500, function () {
+            $("#danger-alert").slideUp(500);
+        });
+    </script>
+}
+
+@if (ViewBag.DangTinThanhCong == 1)
+{
+    <script>
+        $("#success-alert").alert();
+        $("#success-alert").fadeTo(2000, 500).slideUp(500, function () {
+            $("#success-alert").slideUp(500);
+        });
+    </script>
+}
