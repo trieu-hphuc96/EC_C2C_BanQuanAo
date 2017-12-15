@@ -31,30 +31,34 @@ create table TaiKhoan
 	MaTK int identity primary key not null,
 	LoaiTK int,
 	TenNguoiDung varchar(30),
-	MatKhau varchar(20),
+	MatKhau varchar(max),
 	TenDayDu nvarchar(50),
 	DiaChi nvarchar(50),
 	Email nvarchar(50),
+	XacNhanEmail int default 0,
 	NgaySinh date,
 	SDT nvarchar(15),
 	CMND nvarchar(20),
 	NgayDangKy date,
 	NgayDanhGia date,
 	TongTinDaMua int default 0,
+	TongTinConLai int default 0,
 	TongTinKM int default 0,
 	DiemDanhGia decimal(7,1),
-	TinhTrang int
+	TinhTrang int,
+	VCode nvarchar(max),
+	Roles nvarchar(max)
 			
 	foreign key (LoaiTK) references dbo.LoaiTK(MaLoai)
 )
 
 go
-insert into TaiKhoan (LoaiTK,TenNguoiDung,MatKhau,TenDayDu,Email,NgaySinh,SDT,CMND,NgayDangKy,NgayDanhGia,TongTinDaMua)
+insert into TaiKhoan (LoaiTK,TenNguoiDung,MatKhau)
 values 
-(1,'admin','123',null,null,null,null,null,null,null,null),
-(1,'quanly','123',null,null,null,null,null,null,null,null),
-(1,'nguoiban','123',null,null,null,null,null,null,null,null),
-(1,'nguoimua','123',null,null,null,null,null,null,null,null)
+(1,'admin','123'),
+(1,'quanly','123'),
+(1,'nguoiban','123'),
+(1,'nguoimua','123')
 
 
 go
@@ -105,6 +109,17 @@ create table Tin
 )
 
 go
+create table HinhAnhSanPham
+(
+	MaTin int not null,
+	MaHinh int not null,
+	DuongDan nvarchar(max)
+	
+	primary key (MaTin, MaHinh),
+	foreign key (MaTin) references dbo.Tin(MaTin),
+)
+
+go
 create table HoaDon_BanTin
 (
 	MaHDT int identity primary key not null,
@@ -121,7 +136,7 @@ go
 create table HoaDon_BanHang
 (
 	MaHDH int identity primary key not null,
-	MaTK int not null,
+	MaTK_NguoiMua int not null,
 	DuongSo nvarchar(30),
 	QuanHuyen nvarchar(30),
 	TinhThanh nvarchar (30),
@@ -130,7 +145,7 @@ create table HoaDon_BanHang
 	TongTien int,
 	TrangThai int
 	
-	foreign key (MaTK) references dbo.TaiKhoan(MaTK)	
+	foreign key MaTK_NguoiMua references dbo.TaiKhoan(MaTK)	
 )
 
 go

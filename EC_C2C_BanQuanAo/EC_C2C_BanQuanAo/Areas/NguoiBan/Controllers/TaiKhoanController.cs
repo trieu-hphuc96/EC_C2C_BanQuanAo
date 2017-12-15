@@ -1,4 +1,5 @@
 ﻿using EC_C2C_BanQuanAo.Areas.NguoiBan.Models;
+using EC_C2C_BanQuanAo.Filter;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -14,8 +15,7 @@ namespace EC_C2C_BanQuanAo.Areas.NguoiBan.Controllers
     {
         EC_C2C_BanQuanAoDBContext db = new EC_C2C_BanQuanAoDBContext();
 
-
-        // GET: DangNhap_Admin
+        [BasicAuthFilter]
         public ActionResult TrangChu()
         {
             return View("TrangChu");
