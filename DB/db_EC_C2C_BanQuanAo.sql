@@ -136,7 +136,7 @@ go
 create table HoaDon_BanHang
 (
 	MaHDH int identity primary key not null,
-	MaTin int not null,
+	MaTK_NguoiMua int not null,
 	DuongSo nvarchar(30),
 	QuanHuyen nvarchar(30),
 	TinhThanh nvarchar (30),
@@ -145,7 +145,7 @@ create table HoaDon_BanHang
 	TongTien int,
 	TrangThai int
 	
-	foreign key (MaTin) references dbo.Tin(MaTin)	
+	foreign key MaTK_NguoiMua references dbo.TaiKhoan(MaTK)	
 )
 
 go
