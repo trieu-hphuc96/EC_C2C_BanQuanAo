@@ -17,4 +17,11 @@ namespace EC_C2C_BanQuanAo.Areas.NguoiBan.Models
 
         public List<SelectListItem> DanhSachTrangThai { get; set; }
     }
+
+    public class DanhSachTinhTrang
+    {
+        public int MaHDH { get; set; }
+
+        public int TrangThai { get; set; }
+    }
 }
