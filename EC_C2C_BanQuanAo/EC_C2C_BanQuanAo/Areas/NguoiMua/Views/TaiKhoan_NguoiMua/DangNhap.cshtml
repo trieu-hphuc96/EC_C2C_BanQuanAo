@@ -1,0 +1,80 @@
+﻿@model EC_C2C_BanQuanAo.Areas.NguoiMua.Models.DangNhapDangKyViewModel
+
+@{
+    ViewBag.Title = "Đăng Nhập";
+    Layout = "~/Areas/NguoiMua/Views/Shared/_LayoutNguoiMua.cshtml";
+}
+
+<section id="">
+    <!--form-->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 col-sm-offset-1">
+                <div class="login-form">
+                    <!--login form-->
+                    <h2>Login to your account</h2>
+                    @using (Html.BeginForm())
+                    {
+                        <div class="form-group">
+                            @Html.TextBoxFor(m => m.TenNguoiDung_DN, "", new { @class = "form-control", placeholder = "Username" })
+                        </div>
+                        <div class="form-group">
+                            @Html.PasswordFor(m => m.MatKhau_DN, new { @class = "form-control", placeholder = "Password" })
+                        </div>
+
+                        <div class="text-danger">
+                            @ViewBag.Loi
+                        </div>
+
+                        <input class="btn btn-primary btn-block" type="submit" value="Login">
+                    }
+                </div><!--/login form-->
+            </div>
+            <div class="col-sm-1">
+                <h2 class="or">OR</h2>
+            </div>
+            <div class="col-sm-4">
+                <div class="signup-form">
+                    <!--sign up form-->
+                    <h2>New User Signup!</h2>
+                    @using (Html.BeginForm())
+                    {
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                        <div class="text-danger">
+                            @ViewBag.Loi
+                        </div>
+
+                        <div class="form-group">
+                            @Html.EditorFor(m => m.TenDayDu, "", new { htmlAttributes = new { @class = "form-control", @placeholder = "Full Name" } })
+                        </div>
+                        <div class="form-group">
+                            @Html.EditorFor(m => m.TenNguoiDung_DK, "", new { htmlAttributes = new { @class = "form-control", @placeholder = "Username" } })
+                            @Html.ValidationMessageFor(m => m.TenNguoiDung_DK, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <div class="form-row">
+                                <div class="col-md-6">
+                                    @Html.EditorFor(m => m.MatKhau_DK, "", new { htmlAttributes = new { @class = "form-control", @placeholder = "Password" } })
+                                    @Html.ValidationMessageFor(m => m.MatKhau_DK, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-6">
+                                    @Html.EditorFor(m => m.XacNhanMatKhau, "", new { htmlAttributes = new { @class = "form-control", @placeholder = "Confirm Password" } })
+                                    @Html.ValidationMessageFor(m => m.XacNhanMatKhau, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.EditorFor(m => m.Email, "", new { htmlAttributes = new { @class = "form-control", @placeholder = "Nhập email" } })
+                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                        </div>
+
+                        <input class="btn btn-primary btn-block" type="submit" value="Signup">
+                    }
+                </div><!--/sign up form-->
+            </div>
+        </div>
+    </div>
+</section><!--/form-->
+
+

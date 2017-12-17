@@ -45,7 +45,7 @@ namespace EC_C2C_BanQuanAo.Areas.NguoiBan.Controllers
 
                         //chặn lỗi của hàm formauthenticationticket -- , new JsonSerializerSettings { PreserveReferencesHandling = PreserveReferencesHandling.Objects }
                         //Tạo ủy quyền và cookie
-                        FormsAuthenticationTicket fat = new FormsAuthenticationTicket(1, "taikhoan", DateTime.Now, DateTime.Now.AddMinutes(30), false, JsonConvert.SerializeObject(dnvm));
+                        FormsAuthenticationTicket fat = new FormsAuthenticationTicket(1, dnvm.TenNguoiDung, DateTime.Now, DateTime.Now.AddMinutes(30), false, JsonConvert.SerializeObject(dnvm));
 
                         HttpCookie ck = new HttpCookie(FormsAuthentication.FormsCookieName, FormsAuthentication.Encrypt(fat));
                         ck.Expires = DateTime.Now.AddMinutes(30);
@@ -65,7 +65,7 @@ namespace EC_C2C_BanQuanAo.Areas.NguoiBan.Controllers
         public ActionResult DangXuat()
         {
             FormsAuthentication.SignOut();
-            return View("DangNhap");
+            return RedirectToAction("DangNhap", "TaiKhoan");
         }
 
         public ActionResult DangKy()
@@ -97,7 +97,7 @@ namespace EC_C2C_BanQuanAo.Areas.NguoiBan.Controllers
                         tk.NgayDangKy = DateTime.Now;
                         tk.NgayDanhGia = DateTime.Now.AddDays(60);
                         tk.TongTinDaMua = 0;
-                        //tk.TongTinConLai = 0;
+                        tk.TongTinConLai = 0;
                         tk.VCode = keyNew;
 
                         //lưu vào csdl
@@ -130,7 +130,6 @@ namespace EC_C2C_BanQuanAo.Areas.NguoiBan.Controllers
             {
                 TaiKhoan tk = db.TaiKhoans.Find(MaTK);
                 tk.XacNhanEmail = 1;
-                tk.TongTinKM = 2;
 
                 db.Entry(tk).State = EntityState.Modified;
                 db.SaveChanges();
