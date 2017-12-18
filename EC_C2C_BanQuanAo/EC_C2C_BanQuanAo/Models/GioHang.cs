@@ -28,5 +28,7 @@ namespace EC_C2C_BanQuanAo
         public virtual TaiKhoan TaiKhoan { get; set; }
 
         public virtual TaiKhoan TaiKhoan1 { get; set; }
+
+        public virtual Tin Tin { get; set; }
     }
 }

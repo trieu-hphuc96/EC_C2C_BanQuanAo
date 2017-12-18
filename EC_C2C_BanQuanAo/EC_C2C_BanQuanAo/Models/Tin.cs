@@ -1,5 +1,6 @@
 namespace EC_C2C_BanQuanAo
 {
+    using EC_C2C_BanQuanAo.Models;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -13,6 +14,7 @@ namespace EC_C2C_BanQuanAo
         public Tin()
         {
             CT_HoaDon_BanHang = new HashSet<CT_HoaDon_BanHang>();
+            HinhAnhSanPham = new HashSet<HinhAnhSanPham>();
         }
 
         [Key]
@@ -42,6 +44,9 @@ namespace EC_C2C_BanQuanAo
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CT_HoaDon_BanHang> CT_HoaDon_BanHang { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<HinhAnhSanPham> HinhAnhSanPham { get; set; }
 
         public virtual TaiKhoan TaiKhoan { get; set; }
     }

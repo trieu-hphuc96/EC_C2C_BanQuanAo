@@ -178,6 +178,7 @@
     <Compile Include="Areas\NguoiBan\NguoiBanAreaRegistration.cs" />
     <Compile Include="Areas\NguoiMua\Controllers\GioHangController.cs" />
     <Compile Include="Areas\NguoiMua\Controllers\TaiKhoan_NguoiMuaController.cs" />
+    <Compile Include="Areas\NguoiMua\Models\GioHangViewModels.cs" />
     <Compile Include="Areas\NguoiMua\Models\TaiKhoanViewModels.cs" />
     <Compile Include="Areas\NguoiMua\NguoiMuaAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -215,6 +216,10 @@
     <Compile Include="Migrations\201712131714163_CapNhat_HinhAnhSanPham.cs" />
     <Compile Include="Migrations\201712131714163_CapNhat_HinhAnhSanPham.designer.cs">
       <DependentUpon>201712131714163_CapNhat_HinhAnhSanPham.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712180536437_CapNhat_GioHang.cs" />
+    <Compile Include="Migrations\201712180536437_CapNhat_GioHang.Designer.cs">
+      <DependentUpon>201712180536437_CapNhat_GioHang.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CT_HoaDon_BanHang.cs" />
@@ -554,6 +559,9 @@
     <Content Include="Areas\NguoiMua\Views\TaiKhoan_NguoiMua\TrangChu.cshtml" />
     <Content Include="Areas\NguoiBan\Views\TaiKhoan\DangKy.cshtml" />
     <Content Include="Areas\NguoiMua\Views\TaiKhoan_NguoiMua\DangNhap_DangKy.cshtml" />
+    <Content Include="Areas\NguoiMua\Views\GioHang\TinhTien.cshtml" />
+    <Content Include="Areas\NguoiMua\Views\GioHang\Success.cshtml" />
+    <Content Include="Areas\NguoiMua\Views\GioHang\Failure.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -655,6 +663,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712131714163_CapNhat_HinhAnhSanPham.resx">
       <DependentUpon>201712131714163_CapNhat_HinhAnhSanPham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712180536437_CapNhat_GioHang.resx">
+      <DependentUpon>201712180536437_CapNhat_GioHang.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
