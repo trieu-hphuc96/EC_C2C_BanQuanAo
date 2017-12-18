@@ -167,6 +167,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\TaiKhoan_AdminController.cs" />
+    <Compile Include="Areas\Admin\Models\TaiKhoan_AdminViewModels.cs" />
     <Compile Include="Areas\NguoiBan\Controllers\GoiTinController.cs" />
     <Compile Include="Areas\NguoiBan\Controllers\HoaDon_BanHangController.cs" />
     <Compile Include="Areas\NguoiBan\Controllers\SanPhamController.cs" />
@@ -562,6 +564,9 @@
     <Content Include="Areas\NguoiMua\Views\GioHang\TinhTien.cshtml" />
     <Content Include="Areas\NguoiMua\Views\GioHang\Success.cshtml" />
     <Content Include="Areas\NguoiMua\Views\GioHang\Failure.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_LayoutNguoiAdmin.cshtml" />
+    <Content Include="Areas\Admin\Views\TaiKhoan_Admin\TrangChu.cshtml" />
+    <Content Include="Areas\Admin\Views\TaiKhoan_Admin\DanhGiaNguoiBan.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -627,9 +632,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Controllers\" />
-    <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Areas\NguoiBan\Models\Principal\" />
     <Folder Include="HinhAnhSanPham\" />
     <Folder Include="Views\GoiTins\" />

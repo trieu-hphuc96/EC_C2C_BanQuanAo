@@ -84,18 +84,19 @@ namespace EC_C2C_BanQuanAo.Areas.NguoiBan.Controllers
                     if (ktTenNguoiDung == null)
                     {
                         //mã hóa mật khẩu
-                        var keyNew = EncyptPasswordHelper.GeneratePassword(10);
+                        var keyNew = EncyptPasswordHelper.GeneratePassword(20);
                         var password = EncyptPasswordHelper.EncodePassword(dkvm.MatKhau, keyNew);
 
                         //gán thông tin vào 1 tài khoản
                         TaiKhoan tk = new TaiKhoan();
-                        tk.LoaiTK = 2;
+                        tk.LoaiTK = 3;
                         tk.TenDayDu = dkvm.TenDayDu;
                         tk.TenNguoiDung = dkvm.TenNguoiDung;
                         tk.MatKhau = password;
                         tk.Email = dkvm.Email;
                         tk.NgayDangKy = DateTime.Now;
                         tk.NgayDanhGia = DateTime.Now.AddDays(60);
+                        tk.TinhTrang = 0;
                         tk.TongTinDaMua = 0;
                         tk.TongTinConLai = 0;
                         tk.VCode = keyNew;
@@ -108,8 +109,11 @@ namespace EC_C2C_BanQuanAo.Areas.NguoiBan.Controllers
                         //var code = EncyptPasswordHelper.GeneratePassword(10);
                         Email.GuiEmail_XacNhanTaiKhoan(tk, Url.Action("XacNhanEmail", "TaiKhoan", new { MaTK = tk.MaTK, code = EncyptPasswordHelper.GeneratePassword(10) }, protocol: Request.Url.Scheme));
 
+                        DangNhapViewModels dnvm = new DangNhapViewModels();
+                        dnvm.TenNguoiDung = dkvm.TenNguoiDung;
+                        dnvm.MatKhau = dkvm.MatKhau;
 
-                        return RedirectToAction("TrangChu");
+                        return RedirectToAction("DangNhap","TaiKhoan",dnvm);
                     }
 
                     ViewBag.Loi = "Tên đăng nhập đã tồn tại!";

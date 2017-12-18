@@ -16,6 +16,12 @@
     <link href="~/Assets_NguoiMua/css/animate.css" rel="stylesheet">
     <link href="~/Assets_NguoiMua/css/main.css" rel="stylesheet">
     <link href="~/Assets_NguoiMua/css/responsive.css" rel="stylesheet">
+
+    <!-- MyCSS-->
+    <link href="~/Content/jquery-ui.css" rel="stylesheet">
+    <link href="~/Content/MyCSS.css" rel="stylesheet">
+
+
     <!--[if lt IE 9]>
     <script src="~/Assets_NguoiMua/js/html5shiv.js"></script>
     <script src="~/Assets_NguoiMua/js/respond.min.js"></script>
@@ -28,7 +34,7 @@
 
 </head>
 <body>
-
+    
 
     <header id="header">
         <!--header-->
@@ -120,7 +126,21 @@
                 </div>
             </div>
         </div><!--/header-middle-->
+        
+        <section>
+            <div class="container">
+                <div class="alert alert-danger" id="danger-alert" style="display: none;">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    Check out fail!
+                </div>
 
+                <div class="alert alert-success" id="success-alert" style="display: none;">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    Check out successful!
+                </div>
+            </div>
+        </section>
+        
         <div class="header-bottom">
             <!--header-bottom-->
             <div class="container">
@@ -168,6 +188,12 @@
             </div>
         </div><!--/header-bottom-->
     </header> <!--/header-->
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="~/Assets_NguoiBan/vendor/jquery/jquery.min.js"></script>
+    <script src="~/Assets_NguoiBan/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="~/Assets_NguoiBan/vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <div>
         @RenderBody()
@@ -340,6 +366,8 @@
     <script src="~/Assets_NguoiMua/js/price-range.js"></script>
     <script src="~/Assets_NguoiMua/js/jquery.prettyPhoto.js"></script>
     <script src="~/Assets_NguoiMua/js/main.js"></script>
+
+    
 
 </body>
 </html>

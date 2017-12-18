@@ -71,7 +71,7 @@ namespace EC_C2C_BanQuanAo.Areas.NguoiMua.Controllers
                         if (ktTenNguoiDung == null)
                         {
                             //mã hóa mật khẩu
-                            var keyNew = EncyptPasswordHelper.GeneratePassword(10);
+                            var keyNew = EncyptPasswordHelper.GeneratePassword(20);
                             var password = EncyptPasswordHelper.EncodePassword(dndkvm.MatKhau_DK, keyNew);
 
                             //gán thông tin vào 1 tài khoản

@@ -1,7 +1,7 @@
-﻿@model IEnumerable<EC_C2C_BanQuanAo.Areas.NguoiBan.Models.CapNhatTinhTrangViewModel>
+﻿@model IEnumerable<EC_C2C_BanQuanAo.Areas.Admin.Models.DanhGiaNguoiBanViewModel>
 @{
-    ViewBag.Title = "Cập nhật tình trạng đơn hàng";
-    Layout = "~/Areas/NguoiBan/Views/Shared/_LayoutNguoiBan.cshtml";
+    ViewBag.Title = "DanhGiaNguoiBan";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutNguoiAdmin.cshtml";
 }
 
 <!-- Breadcrumbs-->
@@ -15,41 +15,41 @@
 <!-- Custom scripts for this page-->
 <script src="~/Assets_NguoiBan/js/sb-admin-datatables.min.js"></script>
 
-<h2>Cập nhật tình trạng đơn hàng</h2>
+<h2>Đánh giá người bán</h2>
 <br />
 @using (Html.BeginForm())
 {
     <div class="card mb-3">
         <div class="card-header">
-            <i class="fa fa-table"></i> Danh sách các hóa đơn
+            <i class="fa fa-table"></i> Danh sách người bán hàng
         </div>
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered" id="abc" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>@Html.DisplayNameFor(model => model.HoaDon_BanHang.MaHDH)</th>
-                            <th>@Html.DisplayNameFor(model => model.HoaDon_BanHang.TaiKhoan.TenDayDu)</th>
-                            <th>@Html.DisplayNameFor(model => model.HoaDon_BanHang.DuongSo)</th>
-                            <th>@Html.DisplayNameFor(model => model.HoaDon_BanHang.QuanHuyen)</th>
-                            <th>@Html.DisplayNameFor(model => model.HoaDon_BanHang.TinhThanh)</th>
-                            <th>@Html.DisplayNameFor(model => model.HoaDon_BanHang.SoLuong)</th>
-                            <th>@Html.DisplayNameFor(model => model.HoaDon_BanHang.Ngay)</th>
-                            <th>@Html.DisplayNameFor(model => model.HoaDon_BanHang.TongTien)</th>
-                            <th>@Html.DisplayNameFor(model => model.HoaDon_BanHang.TrangThai)</th>
+                            <th>@Html.DisplayNameFor(model => model.TaiKhoan_NguoiBan.MaTK)</th>
+                            <th>@Html.DisplayNameFor(model => model.TaiKhoan_NguoiBan.TenDayDu)</th>
+                            <th>@Html.DisplayNameFor(model => model.TaiKhoan_NguoiBan.DiaChi)</th>
+                            <th>@Html.DisplayNameFor(model => model.TaiKhoan_NguoiBan.SDT)</th>
+                            <th>@Html.DisplayNameFor(model => model.TaiKhoan_NguoiBan.CMND)</th>
+                            <th>@Html.DisplayNameFor(model => model.TaiKhoan_NguoiBan.NgayDangKy)</th>
+                            <th>@Html.DisplayNameFor(model => model.TaiKhoan_NguoiBan.NgayDanhGia)</th>
+                            <th>@Html.DisplayNameFor(model => model.TaiKhoan_NguoiBan.DiemDanhGia)</th>
+                            <th>@Html.DisplayNameFor(model => model.TaiKhoan_NguoiBan.TinhTrang)</th>
                         </tr>
                     </thead>
                     <tfoot>
                         <tr>
-                            <th>@Html.DisplayNameFor(model => model.HoaDon_BanHang.MaHDH)</th>
-                            <th>@Html.DisplayNameFor(model => model.HoaDon_BanHang.TaiKhoan.TenDayDu)</th>
-                            <th>@Html.DisplayNameFor(model => model.HoaDon_BanHang.DuongSo)</th>
-                            <th>@Html.DisplayNameFor(model => model.HoaDon_BanHang.QuanHuyen)</th>
-                            <th>@Html.DisplayNameFor(model => model.HoaDon_BanHang.TinhThanh)</th>
-                            <th>@Html.DisplayNameFor(model => model.HoaDon_BanHang.SoLuong)</th>
-                            <th>@Html.DisplayNameFor(model => model.HoaDon_BanHang.Ngay)</th>
-                            <th>@Html.DisplayNameFor(model => model.HoaDon_BanHang.TongTien)</th>
-                            <th>@Html.DisplayNameFor(model => model.HoaDon_BanHang.TrangThai)</th>
+                            <th>@Html.DisplayNameFor(model => model.TaiKhoan_NguoiBan.MaTK)</th>
+                            <th>@Html.DisplayNameFor(model => model.TaiKhoan_NguoiBan.TenDayDu)</th>
+                            <th>@Html.DisplayNameFor(model => model.TaiKhoan_NguoiBan.DiaChi)</th>
+                            <th>@Html.DisplayNameFor(model => model.TaiKhoan_NguoiBan.SDT)</th>
+                            <th>@Html.DisplayNameFor(model => model.TaiKhoan_NguoiBan.CMND)</th>
+                            <th>@Html.DisplayNameFor(model => model.TaiKhoan_NguoiBan.NgayDangKy)</th>
+                            <th>@Html.DisplayNameFor(model => model.TaiKhoan_NguoiBan.NgayDanhGia)</th>
+                            <th>@Html.DisplayNameFor(model => model.TaiKhoan_NguoiBan.DiemDanhGia)</th>
+                            <th>@Html.DisplayNameFor(model => model.TaiKhoan_NguoiBan.TinhTrang)</th>
                         </tr>
                     </tfoot>
                     <tbody>
@@ -57,31 +57,31 @@
                         {
                             <tr>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.HoaDon_BanHang.MaHDH)
+                                    @Html.DisplayFor(modelItem => item.TaiKhoan_NguoiBan.MaTK)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.HoaDon_BanHang.TaiKhoan.TenDayDu)
+                                    @Html.DisplayFor(modelItem => item.TaiKhoan_NguoiBan.TenDayDu)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.HoaDon_BanHang.DuongSo)
+                                    @Html.DisplayFor(modelItem => item.TaiKhoan_NguoiBan.DiaChi)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.HoaDon_BanHang.QuanHuyen)
+                                    @Html.DisplayFor(modelItem => item.TaiKhoan_NguoiBan.SDT)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.HoaDon_BanHang.TinhThanh)
+                                    @Html.DisplayFor(modelItem => item.TaiKhoan_NguoiBan.CMND)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.HoaDon_BanHang.SoLuong)
+                                    @(Html.DisplayFor(modelItem => item.TaiKhoan_NguoiBan.NgayDangKy).ToString() != "" ? item.TaiKhoan_NguoiBan.NgayDangKy.Value.ToString("dd/MM/yyyy") : "")
                                 </td>
                                 <td>
-                                    @(Html.DisplayFor(modelItem => item.HoaDon_BanHang.Ngay).ToString() != "" ? item.HoaDon_BanHang.Ngay.Value.ToString("dd/MM/yyyy") : "")
+                                    @(Html.DisplayFor(modelItem => item.TaiKhoan_NguoiBan.NgayDanhGia).ToString() != "" ? item.TaiKhoan_NguoiBan.NgayDanhGia.Value.ToString("dd/MM/yyyy") : "")
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.HoaDon_BanHang.TongTien)
+                                    @Html.DisplayFor(modelItem => item.TaiKhoan_NguoiBan.DiemDanhGia)
                                 </td>
                                 <td>
-                                    @Html.DropDownListFor(modelItem => item.HoaDon_BanHang.TrangThai, (List<SelectListItem>)item.DanhSachTrangThai, new { @class = "form-control", @id = item.HoaDon_BanHang.MaHDH, @onchange = "ThayDoiTinhTrang(this);" })
+                                    @Html.DropDownListFor(modelItem => item.TaiKhoan_NguoiBan.TinhTrang, (List<SelectListItem>)item.DanhSachTrangThai, new { @class = "form-control", @id = item.TaiKhoan_NguoiBan.MaTK, @onchange = "ThayDoiTinhTrang(this);" })
                                 </td>
                             </tr>
                         }
@@ -105,19 +105,9 @@
     </div>
 }
 
-@foreach (var item in Model)
-{
-    if (item.HoaDon_BanHang.TrangThai == 0 || item.HoaDon_BanHang.TrangThai == 3)
-    {
-        <script>
-            $('#@item.HoaDon_BanHang.MaHDH').attr('disabled', 'disabled');
-        </script>
-    }
-}
 
 <script>
     var dynamicID = 0;
-
 
         $(document).ready(function () {
             $('#abc').DataTable({
@@ -149,12 +139,12 @@
         });
 
         function ThayDoiTinhTrang(x) {
-            $("#CapNhatTinhTrang").append('<input type="hidden" name="[' + (dynamicID) + '].MaHDH" value="' + x.id + '" />' +
-                                          '<input type="hidden" name="[' + (dynamicID) + '].TrangThai" value="' + x.value + '" />');
+            $("#CapNhatTinhTrang").append('<input type="hidden" name="[' + (dynamicID) + '].MaTK" value="' + x.id + '" />' +
+                                          '<input type="hidden" name="[' + (dynamicID) + '].TinhTrang" value="' + x.value + '" />');
 
-            var maHDH = x.id;
-            $.get('/NguoiBan/HoaDon_BanHang/layDanhSachHoaDonBanHang', { maHDH: maHDH }, function (data) {
-                if (data.TrangThai == x.value)
+            var maTK = x.id;
+            $.get('/Admin/TaiKhoan_Admin/layDanhSachTaiKhoan', { maTK: maTK }, function (data) {
+                if (data.TinhTrang == x.value)
                 {
                     $(x).closest('select').removeClass('is-valid');
                 }
@@ -171,4 +161,6 @@
         }
 
 </script>
+
+
 

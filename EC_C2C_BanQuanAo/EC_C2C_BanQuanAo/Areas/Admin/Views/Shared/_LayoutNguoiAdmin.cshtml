@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Bootstrap core CSS-->
+    <link href="~/Assets_NguoiBan/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom fonts for this template-->
+    <link href="~/Assets_NguoiBan/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- Page level plugin CSS-->
+    <link href="~/Assets_NguoiBan/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+    <!-- Custom styles for this template-->
+    <link href="~/Assets_NguoiBan/css/sb-admin.css" rel="stylesheet">
+
+    <!-- MyCSS-->
+    <link href="~/Content/jquery-ui.css" rel="stylesheet">
+    <link href="~/Content/MyCSS.css" rel="stylesheet">
+
+</head>
+<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+        <a class="navbar-brand" href="@Url.Action("TrangChu","Admin")">Bán Quần Áo</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+                    <a class="nav-link" href="@Url.Action("TrangChu", "Admin")">
+                        <i class="fa fa-fw fa-dashboard"></i>
+                        <span class="nav-link-text">Trang Chủ</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="GoiTin">
+                    <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseGoiTin" data-parent="#exampleAccordion">
+                        <i class="fa fa-fw fa-newspaper-o"></i>
+                        <span class="nav-link-text">Gói tin</span>
+                    </a>
+                    <ul class="sidenav-second-level collapse" id="collapseGoiTin">
+                        <li>
+                            <a href="@Url.Action("MuaGoiTin","GoiTin")">Mua gói tin</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("TrangChu", "Admin")">Lịch sử giao dịch</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="SanPham">
+                    <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseSanPham" data-parent="#exampleAccordion">
+                        <i class="fa fa-fw fa-product-hunt"></i>
+                        <span class="nav-link-text">Sản phẩm</span>
+                    </a>
+                    <ul class="sidenav-second-level collapse" id="collapseSanPham">
+                        <li>
+                            <a href="@Url.Action("MuaGoiTin", "Admin")">Thông tin sản phẩm</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("DangTinSanPham","SanPham")">Đăng tin sản phẩm</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="ThongKe">
+                    <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseThongKe" data-parent="#exampleAccordion">
+                        <i class="fa fa-fw fa-area-chart"></i>
+                        <span class="nav-link-text">Thống kê</span>
+                    </a>
+                    <ul class="sidenav-second-level collapse" id="collapseThongKe">
+                        <li>
+                            <a href="@Url.Action("MuaGoiTin", "Admin")">Doanh thu</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("TrangChu", "Admin")">Đơn hàng</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+
+            <ul class="navbar-nav sidenav-toggler">
+                <li class="nav-item">
+                    <a class="nav-link text-center" id="sidenavToggler">
+                        <i class="fa fa-fw fa-angle-left"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="~/Assets_NguoiBan/vendor/jquery/jquery.min.js"></script>
+    <script src="~/Assets_NguoiBan/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="~/Assets_NguoiBan/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Page level plugin JavaScript-->
+    <script src="~/Assets_NguoiBan/vendor/chart.js/Chart.min.js"></script>
+    <script src="~/Assets_NguoiBan/vendor/datatables/jquery.dataTables.js"></script>
+    <script src="~/Assets_NguoiBan/vendor/datatables/dataTables.bootstrap4.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="~/Assets_NguoiBan/js/sb-admin.min.js"></script>
+    
+    <!-- MyJS-->
+    <script src="~/Assets_NguoiBan/js/sb-admin.min.js"></script>
+    <script src="~/Scripts/bootstrap-filestyle.min.js"></script> <!-- Đổi style cho input type-->
+
+    <script src="~/Scripts/jquery-ui.js"></script>
+
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+
+
+
+
+
+    <div class="content-wrapper">
+        <div class="container-fluid">
+            <div>
+                @RenderBody()
+
+                <footer class="sticky-footer">
+                    <div class="container">
+                        <div class="text-center">
+                            <small>Copyright © Your Website 2017</small>
+                        </div>
+                    </div>
+                </footer>
+                <!-- Scroll to Top Button-->
+                <a class="scroll-to-top rounded" href="#page-top">
+                    <i class="fa fa-angle-up"></i>
+                </a>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

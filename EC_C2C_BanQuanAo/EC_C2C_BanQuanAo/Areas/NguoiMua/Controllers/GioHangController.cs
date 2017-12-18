@@ -177,8 +177,8 @@ namespace EC_C2C_BanQuanAo.Areas.NguoiMua.Controllers
                     var executePayment = ExecutePayment(apiContext, payerId, Session[guid] as string);
                     if (executePayment.state.ToLower() != "approved")
                     {
-                        MessageBox.Show("Lỗi");
-                        return View("Failure");
+                        Session["CheckOut"] = 0;
+                        return RedirectToAction("TrangChu","TaiKhoan_NguoiMua");
                     }
                 }
             }
@@ -186,10 +186,13 @@ namespace EC_C2C_BanQuanAo.Areas.NguoiMua.Controllers
             {
                 MessageBox.Show(ex.Message);
                 PaypalLogger.Log("Error:" + ex.Message);
-                return View("Failure");
+
+                Session["CheckOut"] = 0;
+                return RedirectToAction("TrangChu", "TaiKhoan_NguoiMua");
             }
 
-            return View("Success");
+            Session["CheckOut"] = 1;
+            return RedirectToAction("TrangChu", "TaiKhoan_NguoiMua");
         }
 
 

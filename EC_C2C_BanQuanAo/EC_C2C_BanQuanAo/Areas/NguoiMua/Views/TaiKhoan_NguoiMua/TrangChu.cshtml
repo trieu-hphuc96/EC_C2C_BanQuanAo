@@ -2,7 +2,6 @@
     ViewBag.Title = "Index";
     Layout = "~/Areas/NguoiMua/Views/Shared/_LayoutNguoiMua.cshtml";
 }
-
 <section id="slider">
     <!--slider-->
     <div class="container">
@@ -766,3 +765,24 @@
         </div>
     </div>
 </section>
+@if(Session.Count > 0)
+{
+    if ((int)Session["CheckOut"] == 1)
+    {
+            <script>
+                $("#success-alert").alert();
+                $("#success-alert").fadeTo(4000, 500).slideUp(500, function () {
+                    $("#success-alert").slideUp(500);
+                });
+            </script>
+    }
+    else if ((int)Session["CheckOut"] == 0)
+    {
+        <script>
+            $("#danger-alert").alert();
+            $("#danger-alert").fadeTo(4000, 500).slideUp(500, function () {
+                $("#danger-alert").slideUp(500);
+            });
+        </script>
+    }
+}
